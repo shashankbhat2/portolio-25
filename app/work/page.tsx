@@ -1,10 +1,22 @@
+'use client';
+
 import Button from '@/components/Button';
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { motion } from 'framer-motion';
+import contentData from '@/data/content.json';
 
-export const metadata: Metadata = {
-  title: 'Work — Shashank Bhat',
-  description: 'Explore professional, freelance, and side projects including Supergrow, Kenpath, Fireshort, ClickRecord, Rua, and Kinko.',
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
 
 export default function WorkPage() {
@@ -12,91 +24,123 @@ export default function WorkPage() {
     <main className="min-h-screen pt-24 pb-20 px-6 lg:px-8 relative">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Work</h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
+        <motion.div 
+          className="mb-16"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+            variants={fadeInUp}
+          >
+            Work
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl"
+            variants={fadeInUp}
+          >
             A collection of professional, freelance, and personal projects that showcase my engineering range.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Professional Work */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4">
+        <motion.section 
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
             Professional Work
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ProjectCard
-              title="Kenpath Technologies"
-              description="Enterprise analytics & dashboards"
-              tags="React, D3.js, Sigma.js"
-              href="/work/kenpath"
-            />
-            <ProjectCard
-              title="Deloitte"
-              description="Process mapping & workflows"
-              tags="BPMN 2.0, Blueworks"
-              href="/work/deloitte"
-            />
-          </div>
-        </section>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+          >
+            {contentData.projects.filter(p => p.category === 'professional').map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                tags={project.tags.join(', ')}
+                href={`/work/${project.id}`}
+              />
+            ))}
+          </motion.div>
+        </motion.section>
 
         {/* Freelance Work */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4">
+        <motion.section 
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
             Freelance Work
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ProjectCard
-              title="Supergrow"
-              description="AI-powered creator tools"
-              tags="React, FastAPI, Whisper"
-              href="/work/supergrow"
-            />
-            <ProjectCard
-              title="Videogrow"
-              description="AI video repurposing SaaS (shelved)"
-              tags="React, Python"
-              href="/work/videogrow"
-            />
-            <ProjectCard
-              title="Rua Skin & Hair"
-              description="Clean, modern website"
-              tags="Next.js"
-              href="/work/rua"
-            />
-            <ProjectCard
-              title="Kinko Global"
-              description="Fast corporate website"
-              tags="React, Tailwind"
-              href="/work/kinko"
-            />
-          </div>
-        </section>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {contentData.projects.filter(p => p.category === 'freelance').map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                tags={project.tags.join(', ')}
+                href={`/work/${project.id}`}
+              />
+            ))}
+          </motion.div>
+        </motion.section>
 
         {/* Side Projects */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-200 pb-4">
+        <motion.section 
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
             Side Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ProjectCard
-              title="Fireshort"
-              description="Transform 1 video into multiple content formats"
-              tags="AI, FFmpeg, FastAPI"
-              href="/work/fireshort"
-            />
-            <ProjectCard
-              title="ClickRecord"
-              description="Record screen/camera & auto-generate shareable videos"
-              tags="Chrome Extension, Node.js"
-              href="/work/clickrecord"
-            />
-          </div>
-        </section>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {contentData.projects.filter(p => p.category === 'side').map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                tags={project.tags.join(', ')}
+                href={`/work/${project.id}`}
+              />
+            ))}
+          </motion.div>
+        </motion.section>
 
-        <div className="text-center mt-16">
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
           <Button href="/contact">Let&apos;s Work Together</Button>
-        </div>
+        </motion.div>
       </div>
     </main>
   );
@@ -112,20 +156,31 @@ interface ProjectCardProps {
 function ProjectCard({ title, description, tags, href }: ProjectCardProps) {
   return (
     <Link href={href} className="group">
-      <div className="bg-white border border-gray-200 hover:border-indigo-300 hover:shadow-lg rounded-2xl p-6 transition-all duration-300 hover:transform hover:-translate-y-1">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+      <motion.div 
+        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 rounded-2xl p-6 transition-all duration-300"
+        variants={fadeInUp}
+        whileHover={{ y: -4 }}
+      >
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-colors">
           {title}
         </h3>
-        <p className="text-gray-600 text-sm mb-4">{description}</p>
-        <p className="text-xs text-gray-500">{tags}</p>
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{description}</p>
+        <p className="text-xs text-gray-500 dark:text-gray-500">{tags}</p>
         
-        <div className="mt-4 flex items-center text-indigo-600 text-sm font-medium group-hover:text-indigo-700 transition-colors">
+        <div className="mt-4 flex items-center text-gray-900 dark:text-white text-sm font-medium transition-colors">
           View Project
-          <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <motion.svg 
+            className="w-4 h-4 ml-2" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+            animate={{ x: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
+          </motion.svg>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bodoni_Moda } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({
+const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-bodoni",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,25 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased bg-white text-gray-900`}>
-        <Navigation />
-        <div className="relative">
-          {/* Decorative Background Elements */}
-          <div className="fixed inset-0 pointer-events-none overflow-hidden">
-            {/* Vertical Lines */}
-            <div className="line-vertical left-[20%] top-0 h-full" />
-            <div className="line-vertical left-[50%] top-0 h-full" />
-            <div className="line-vertical left-[80%] top-0 h-full" />
-            
-            {/* Gradient Blobs */}
-            <div className="gradient-blob w-96 h-96 bg-indigo-500 top-20 -left-20" />
-            <div className="gradient-blob w-96 h-96 bg-purple-500 bottom-20 -right-20" />
-          </div>
-          
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${bodoniModa.variable} antialiased`}>
+        <ThemeProvider>
           {children}
-        </div>
-        <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

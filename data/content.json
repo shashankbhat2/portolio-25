@@ -1,0 +1,150 @@
+{
+  "profile": {
+    "name": "Shashank Bhat",
+    "title": "Full-Stack Engineer & AI Product Builder",
+    "bio": "From enterprise dashboards to creator-focused SaaS, I specialize in building smooth, production-ready experiences using React, FastAPI, Node.js, and AI pipelines.",
+    "email": "shashank.bhat@kenpath.io",
+    "phone": "+91 91488 94655"
+  },
+  "projects": [
+    {
+      "id": "supergrow",
+      "title": "Supergrow",
+      "description": "AI-powered LinkedIn growth platform with viral post generation and multi-platform scheduling",
+      "category": "freelance",
+      "tags": ["React", "FastAPI", "PostgreSQL", "Celery", "Redis"],
+      "featured": true
+    },
+    {
+      "id": "kenpath",
+      "title": "Kenpath",
+      "description": "No-code LinkedIn automation tool with Chrome extension and analytics dashboard",
+      "category": "professional",
+      "tags": ["React", "Node.js", "Express", "MongoDB", "Chrome Extension"],
+      "featured": true
+    },
+    {
+      "id": "fireshort",
+      "title": "Fireshort",
+      "description": "One-click short-form video generator with AI-powered editing and multi-format export",
+      "category": "side",
+      "tags": ["React", "FastAPI", "FFmpeg", "S3", "AWS Lambda"],
+      "featured": true
+    },
+    {
+      "id": "clickrecord",
+      "title": "ClickRecord",
+      "description": "AI video agent generating personalized product demos with voice and slides",
+      "category": "side",
+      "tags": ["React", "Node.js", "FFmpeg", "ElevenLabs", "S3"],
+      "featured": true
+    },
+    {
+      "id": "deloitte",
+      "title": "Deloitte",
+      "description": "Process mapping & workflows",
+      "category": "professional",
+      "tags": ["BPMN 2.0", "Blueworks"],
+      "featured": false
+    },
+    {
+      "id": "videogrow",
+      "title": "Videogrow",
+      "description": "AI video repurposing SaaS (shelved)",
+      "category": "freelance",
+      "tags": ["React", "Python"],
+      "featured": false
+    },
+    {
+      "id": "rua",
+      "title": "Rua Skin & Hair",
+      "description": "Clean, modern website",
+      "category": "freelance",
+      "tags": ["Next.js"],
+      "featured": false
+    },
+    {
+      "id": "kinko",
+      "title": "Kinko Global",
+      "description": "Fast corporate website",
+      "category": "freelance",
+      "tags": ["React", "Tailwind"],
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "title": "Freelance Engineer",
+      "company": "Remote, Worldwide",
+      "period": "2022 - Present",
+      "description": "Built production apps for 15+ clients. Specialized in AI-powered SaaS, automation tools, and MVP development.",
+      "tags": ["React", "FastAPI", "AI/ML", "Chrome Extensions", "Video Processing"]
+    },
+    {
+      "title": "Product Engineer",
+      "company": "Supergrow (YC W24)",
+      "period": "2024 - Present",
+      "description": "Building core AI infrastructure and frontend systems. Shipped post generation, scheduling, and analytics features.",
+      "tags": ["React", "FastAPI", "PostgreSQL", "Celery", "Redis"]
+    },
+    {
+      "title": "Technology Analyst",
+      "company": "Deloitte Consulting",
+      "period": "2022 - 2024",
+      "description": "Led web app modernization for enterprise clients. Migrated legacy systems to React-based architectures.",
+      "tags": ["React", "Node.js", "SQL", "CI/CD"]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Kenpath Technologies",
+      "period": "2023 - Present",
+      "description": "Built interactive dashboards, reusable component systems, and optimized rendering by ~30%. Data viz: D3.js, Sigma.js, Chart.js. Docker-based CI/CD, code reviews, scalable API-driven UI engineering.",
+      "tags": ["React", "D3.js", "Sigma.js", "Chart.js", "Docker"]
+    },
+    {
+      "title": "Associate Analyst",
+      "company": "Deloitte",
+      "period": "2022 - 2023",
+      "description": "Designed business processes using BPMN 2.0 & IBM Blueworks. Improved ICAAP & compliance workflows.",
+      "tags": ["BPMN 2.0", "IBM Blueworks", "Process Design"]
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "React (no state libraries)",
+      "Modern UX / Responsive UI",
+      "Component systems",
+      "Drag-and-drop interactions",
+      "Visualization systems (Chart.js / D3 / Sigma.js)"
+    ],
+    "backend": [
+      "FastAPI, Node.js",
+      "Python pipelines",
+      "Whisper, FFmpeg",
+      "LLM-based content generation",
+      "API design & integrations"
+    ],
+    "product": [
+      "SaaS architecture",
+      "Workflow design",
+      "Chrome extensions",
+      "Video tooling",
+      "Idea to shipped MVP"
+    ]
+  },
+  "values": [
+    "Clear product thinking",
+    "Simple, scalable systems",
+    "Aesthetically clean UI",
+    "Reliability",
+    "Ownership + fast shipping"
+  ],
+  "technologies": [
+    "React",
+    "Node.js",
+    "FastAPI",
+    "Python",
+    "AI Systems",
+    "Complex UI/UX Flows"
+  ]
+}

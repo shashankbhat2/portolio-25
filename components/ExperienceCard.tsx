@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 interface ExperienceCardProps {
   company: string;
   role: string;
@@ -14,33 +18,33 @@ export default function ExperienceCard({
   tags 
 }: ExperienceCardProps) {
   return (
-    <div className="group relative">
-      <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
-      <div className="relative bg-white border border-gray-200 rounded-2xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-300">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">{company}</h3>
-            <p className="text-gray-600 text-sm">{role}</p>
-          </div>
-          <span className="text-gray-500 text-sm mt-2 sm:mt-0">{period}</span>
+    <motion.div
+      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 p-6 transition-all"
+      whileHover={{ x: 4 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{company}</h3>
+          <p className="text-gray-600 dark:text-gray-400 text-sm">{role}</p>
         </div>
-        
-        <p className="text-gray-600 text-sm mb-4 leading-relaxed">{description}</p>
-        
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <span 
-                key={index}
-                className="text-xs px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        <span className="text-gray-500 dark:text-gray-500 text-sm mt-2 sm:mt-0">{period}</span>
       </div>
-    </div>
+      
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">{description}</p>
+      
+      {tags && tags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span 
+              key={index}
+              className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </motion.div>
   );
 }
